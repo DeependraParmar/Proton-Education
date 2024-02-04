@@ -35,7 +35,7 @@ const Contact = () => {
             console.log(res.data);
 
             if (res.data.success) {
-                toast.success('OTP sent successfully. Please check your email.',{
+                toast.success(res.data.message ,{
                     duration: 5000,
                     position: "top-center",
                 });
@@ -46,7 +46,7 @@ const Contact = () => {
                 setPhoneNumber('');
                 setMessage('');
             } else {
-                toast.error('Failed to send OTP. Please try again later.');
+                toast.error(res.data.message);
                 setIsClicked(false);
             }
         } catch (error) {
