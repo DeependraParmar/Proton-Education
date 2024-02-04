@@ -40,7 +40,7 @@ const NavLogo = React.memo(({ logo }) => {
   return <Link to={'/'}>
     <Box display={['flex']} alignItems={'center'} justifyContent={'center'} >
       <Image width={'10'} src={logo} borderRadius={'full'} dropShadow={'0px 0px 10px #f9c307'} />
-      <Text fontWeight={'bold'} fontSize={'1.2rem'} ml={'2'} color={'#5340ff'} >Proton Education</Text>
+      <Text fontWeight={'bold'} fontSize={['0.9rem','1rem','1.1rem','1.2rem']} ml={'2'} color={'#5340ff'} >Proton Education</Text>
     </Box>
   </Link>
 });
@@ -91,7 +91,7 @@ const HamburgerButton = ({ logo }) => {
             <Link to={'/'} onClick={onDrawerClose}>
               <Box display={['flex']} alignItems={'center'} justifyContent={'flex-start'} >
                 <Image width={'10'} src={logo} borderRadius={'full'} dropShadow={'0px 0px 10px #f9c307'} />
-                <Text fontWeight={'bold'} fontSize={'1.2rem'} ml={'2'} color={'#5340ff'} >Proton Education</Text>
+                <Text fontWeight={'bold'} fontSize={['0.9rem', '1rem', '1.1rem', '1.2rem']} ml={'2'} color={'#5340ff'} >Proton Education</Text>
               </Box>
             </Link>
             <Button colorScheme='gray' size={'sm'} position={'absolute'} right={'5'} top={'4'} onClick={onDrawerClose} >
