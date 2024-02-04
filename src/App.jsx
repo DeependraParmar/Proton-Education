@@ -7,6 +7,7 @@ import Footer from "./pages/Layout/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import ("./pages/About"))
+const Faculty = lazy(() => import ("./pages/Faculty"))
 
 function App() {
 
@@ -18,6 +19,7 @@ function App() {
       <Routes>
         <Route path="/" element = {<Home />} />
         <Route path="/about" element = {<About />} />
+        <Route path="/faculty" element={<Faculty />} />
       </Routes>
       <Footer />
       </Suspense>
