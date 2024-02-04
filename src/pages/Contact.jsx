@@ -116,7 +116,6 @@ const Contact = () => {
                                 <Button isDisabled={!name || !email || !phoneNumber || !message || phoneNumber.length > 10 || phoneNumber.length < 10 ? true : false} onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
                         }
 
-
                         <Box
                             bg="rgba(83, 64, 255,0.1)"
                             p={4}
