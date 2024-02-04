@@ -42,9 +42,9 @@ const FacultyCard = ({ image, name, education, experience,designation, school, p
     }
 
     return (<>
-        <VStack boxShadow={'0px 0px 10px rgb(0,0,0,0.1)'} borderRadius={'10px'} width={['90%', '90%', '20%', '20%']} padding={'4'} gap={4}>
-            <Image width={'85%'} borderRadius={'full'} src={image} />
-            <VStack gap={1}>
+        <VStack boxShadow={'0px 0px 10px rgb(0,0,0,0.1)'} borderRadius={'10px'} width={['90%', '90%', '20%', '20%']} gap={4}>
+            <Image width={'100%'} src={image} />
+            <VStack gap={0}>
                 <Text fontSize={'1.2rem'} color={'#5340ff'} fontWeight={'bold'}>{name}</Text>
                 {
                     designation && <Text fontSize={'sm'} fontWeight={'bold'}>{designation}</Text>
