@@ -6,6 +6,7 @@ import { Toaster } from "react-hot-toast";
 import Footer from "./pages/Layout/Footer";
 
 const Home = lazy(() => import("./pages/Home"));
+const About = lazy(() => import ("./pages/About"))
 
 function App() {
 
@@ -16,7 +17,9 @@ function App() {
       <Suspense fallback= {<LoadingComponent />}>
       <Routes>
         <Route path="/" element = {<Home />} />
+        <Route path="/about" element = {<About />} />
       </Routes>
+      <Footer />
       </Suspense>
 
 
@@ -44,7 +47,6 @@ function App() {
             },
           }}
         />
-    <Footer />
     </Router>
     </>
   )
