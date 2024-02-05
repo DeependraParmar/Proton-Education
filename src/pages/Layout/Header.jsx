@@ -58,7 +58,10 @@ const NavLinks = React.memo(({ location }) => {
 const NavButton = () => {
   const copyNumber = () => {
     navigator.clipboard.writeText('9584412188');
-    toast.success("Number Copied to Clipboard")
+    toast.success("Number Copied to Clipboard", {
+      position: "top-center",
+      duration: 5000,
+    });
   }
   return (<>
     <HStack display={['none', 'none', 'flex', 'flex']} gap={4}>
