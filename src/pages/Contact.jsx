@@ -4,6 +4,7 @@ import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { AiOutlineMail, AiOutlineUser } from 'react-icons/ai'
 import { BiSolidSend } from 'react-icons/bi'
+import { LuPhone } from 'react-icons/lu'
 import { MdClose, MdLockOpen } from 'react-icons/md'
 import MainWrapper from '../components/MainWrapper'
 import TransitionWrapper from '../components/Transition'
@@ -43,8 +44,8 @@ const Contact = () => {
                     duration: 5000,
                     position: "top-center",
                 });
-                onOpen();
                 setIsClicked(false);
+                onOpen();
                 setEmail('');
                 setName('');
                 setPhoneNumber('');
@@ -96,22 +97,22 @@ const Contact = () => {
                             <InputLeftElement pointerEvents={'none'}>
                                 <AiOutlineUser size='18' />
                             </InputLeftElement>
-                            <Input value={name} isRequired={true} type='text' placeholder='John Doe' focusBorderColor='#5340ff' fontSize={'sm'} onChange={(e) => setName(e.target.value)} />
+                            <Input isRequired={true} type='text' placeholder='John Doe' focusBorderColor='#5340ff' fontSize={'sm'} onChange={(e) => setName(e.target.value)} />
                         </InputGroup>
                         <InputGroup spacing='4' >
                             <InputLeftElement pointerEvents={'none'}>
                                 <AiOutlineMail size='18' />
                             </InputLeftElement>
-                            <Input value={email} type='email' placeholder='johndoe@gmail.com' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setEmail(e.target.value)} />
+                            <Input type='email' placeholder='johndoe@gmail.com' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setEmail(e.target.value)} />
                         </InputGroup>
                         <InputGroup spacing='4' >
                             <InputLeftElement pointerEvents={'none'}>
-                                <AiOutlineMail size='18' />
+                                <LuPhone size='16' />
                             </InputLeftElement>
-                            <Input value={phoneNumber} type='number' placeholder='961758XXXX' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setPhoneNumber(e.target.value)} />
+                            <Input type='number' placeholder='961758XXXX' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setPhoneNumber(e.target.value)} />
                         </InputGroup>
 
-                        <Textarea value={message} placeholder='Your message for us.' fontSize={'sm'} resize={'none'} focusBorderColor='#5340ff' isRequired={true} onChange={(e) => setMessage(e.target.value)} />
+                        <Textarea placeholder='Your message for us.' fontSize={'sm'} resize={'none'} focusBorderColor='#5340ff' isRequired={true} onChange={(e) => setMessage(e.target.value)} />
 
                         {
                             isClicked ? 
@@ -159,14 +160,14 @@ const Contact = () => {
                             <InputLeftElement pointerEvents={'none'}>
                                 <AiOutlineMail size='18' />
                             </InputLeftElement>
-                            <Input value={verEmail} type='email' placeholder='johndoe@gmail.com' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setVerEmail(e.target.value)} />
+                            <Input type='email' placeholder='johndoe@gmail.com' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setVerEmail(e.target.value)} />
                         </InputGroup>
 
                         <InputGroup spacing='4' my={3} >
                             <InputLeftElement pointerEvents={'none'}>
                                 <MdLockOpen size='18' />
                             </InputLeftElement>
-                            <Input value={otp} type='number' placeholder='452126' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setOtp(e.target.value)} />
+                            <Input type='number' placeholder='452126' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setOtp(e.target.value)} />
                         </InputGroup>
 
                     </ModalBody>
