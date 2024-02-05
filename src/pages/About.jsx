@@ -18,7 +18,9 @@ const About = () => {
             <TransitionWrapper>
                 <MainWrapper pt={24} pb={12}>
                     <VStack width={['90%','90%','90%','90%']} margin={'auto'} alignItems={'flex-start'} fontSize={['sm', 'sm', 'md', 'md']} gap={'4'}>
-                        <Heading width={'full'} textAlign={'center'} fontSize={['1.8rem', '2rem', '2rem', '2rem']} mb={'2'} >About <Text display={'inline'} fontSize={['2rem', '2.2rem', '2.2rem', '2.5rem']} color={'#5340ff'}>Proton</Text></Heading>
+                        <TransitionDiv>
+                            <Heading width={'full'} textAlign={'center'} fontSize={['1.8rem', '2rem', '2rem', '2rem']} mb={'2'} >About <Text display={'inline'} fontSize={['2rem', '2.2rem', '2.2rem', '2.5rem']} color={'#5340ff'}>Proton</Text></Heading>
+                        </TransitionDiv>
 
                         <TransitionDiv>
                             <Box>

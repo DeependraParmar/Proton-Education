@@ -6,28 +6,33 @@ import { FaPhoneAlt } from 'react-icons/fa'
 import MainWrapper from '../components/MainWrapper'
 import TransitionWrapper from '../components/Transition'
 import { facultyDetails } from '../data'
+import TransitionDiv from '../components/TransitionDiv'
 
 const Faculty = () => {
     useEffect(() => {
         window.scrollTo(0, 0, { behavior: 'smooth' });
     }, []);
-    
+
     return (
         <>
             <TransitionWrapper>
                 <MainWrapper pt={24} pb={12}>
                     <VStack gap={[6, 6, 8, 8]}>
-                        <Heading width={'full'} textAlign={'center'} fontSize={['1.8rem', '2rem', '2rem', '2rem']} mb={'2'} >Our <Text display={'inline'} fontSize={['2rem', '2.2rem', '2.2rem', '2.5rem']} color={'#5340ff'}>Elite Faculty</Text></Heading>
+                        <TransitionDiv>
+                            <Heading width={'full'} textAlign={'center'} fontSize={['1.8rem', '2rem', '2rem', '2rem']} mb={'2'} >Our <Text display={'inline'} fontSize={['2rem', '2.2rem', '2.2rem', '2.5rem']} color={'#5340ff'}>Elite Faculty</Text></Heading>
+                        </TransitionDiv>
 
-                        <Stack flexDirection={['column','column','row','row']} justifyContent={['flex-start','flex-start','center','center']} alignItems={['center','center','flex-start','flex-start']} width={'full'} gap={8} >
-                            {
-                                facultyDetails.map((faculty, index) => {
-                                    return (
-                                        <FacultyCard name={faculty.name} education={faculty.education} school={faculty.school} designation={faculty.designation} experience={faculty.experience} image={faculty.image} phoneNumber={faculty.phoneNumber} email={faculty.email} />
-                                    )
-                                })
-                            }
-                        </Stack>
+                        <TransitionDiv>
+                            <Stack flexDirection={['column', 'column', 'row', 'row']} justifyContent={['flex-start', 'flex-start', 'center', 'center']} alignItems={['center', 'center', 'flex-start', 'flex-start']} width={'full'} gap={8} >
+                                {
+                                    facultyDetails.map((faculty, index) => {
+                                        return (
+                                            <FacultyCard name={faculty.name} education={faculty.education} school={faculty.school} designation={faculty.designation} experience={faculty.experience} image={faculty.image} phoneNumber={faculty.phoneNumber} email={faculty.email} />
+                                        )
+                                    })
+                                }
+                            </Stack>
+                        </TransitionDiv>
                     </VStack>
                 </MainWrapper>
             </TransitionWrapper>
@@ -35,7 +40,7 @@ const Faculty = () => {
     )
 }
 
-const FacultyCard = ({ image, name, education, experience,designation, school, phoneNumber, email }) => {
+const FacultyCard = ({ image, name, education, experience, designation, school, phoneNumber, email }) => {
     const copyPhone = () => {
         navigator.clipboard.writeText(phoneNumber);
         toast.success("Number Copied to Clipboard");

@@ -8,6 +8,7 @@ import { LuPhone } from 'react-icons/lu'
 import { MdClose, MdLockOpen } from 'react-icons/md'
 import MainWrapper from '../components/MainWrapper'
 import TransitionWrapper from '../components/Transition'
+import TransitionDiv from '../components/TransitionDiv'
 
 const Contact = () => {
     const [name, setName] = useState("");
@@ -103,61 +104,65 @@ const Contact = () => {
 
     return (
         <>
-            <TransitionWrapper>
-                <MainWrapper pt={24} pb={12}>
-                    <VStack width={['95%', '95%', '30%', '30%']} margin={'auto'} display={'flex'} spacing={'3'}>
-                        <Heading width={'full'} textAlign={'center'} fontSize={['1.8rem', '2rem', '2rem', '2rem']} mb={'2'} >Contact <Text display={'inline'} fontSize={['2rem', '2.2rem', '2.2rem', '2.5rem']} color={'#5340ff'}>Proton</Text></Heading>
+            <TransitionDiv>
+                <TransitionWrapper>
+                    <MainWrapper pt={24} pb={12}>
+                        <VStack width={['95%', '95%', '30%', '30%']} margin={'auto'} display={'flex'} spacing={'3'}>
+                            <Heading width={'full'} textAlign={'center'} fontSize={['1.8rem', '2rem', '2rem', '2rem']} mb={'2'} >Contact <Text display={'inline'} fontSize={['2rem', '2.2rem', '2.2rem', '2.5rem']} color={'#5340ff'}>Proton</Text></Heading>
 
-                        <InputGroup spacing='4' >
-                            <InputLeftElement pointerEvents={'none'}>
-                                <AiOutlineUser size='18' />
-                            </InputLeftElement>
-                            <Input isRequired={true} type='text' placeholder='John Doe' focusBorderColor='#5340ff' fontSize={'sm'} onChange={(e) => setName(e.target.value)} />
-                        </InputGroup>
-                        <InputGroup spacing='4' >
-                            <InputLeftElement pointerEvents={'none'}>
-                                <AiOutlineMail size='18' />
-                            </InputLeftElement>
-                            <Input type='email' placeholder='johndoe@gmail.com' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setEmail(e.target.value)} />
-                        </InputGroup>
-                        <InputGroup spacing='4' >
-                            <InputLeftElement pointerEvents={'none'}>
-                                <LuPhone size='16' />
-                            </InputLeftElement>
-                            <Input type='number' placeholder='961758XXXX' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setPhoneNumber(e.target.value)} />
-                        </InputGroup>
+                            <InputGroup spacing='4' >
+                                <InputLeftElement pointerEvents={'none'}>
+                                    <AiOutlineUser size='18' />
+                                </InputLeftElement>
+                                <Input isRequired={true} type='text' placeholder='John Doe' focusBorderColor='#5340ff' fontSize={'sm'} onChange={(e) => setName(e.target.value)} />
+                            </InputGroup>
+                            <InputGroup spacing='4' >
+                                <InputLeftElement pointerEvents={'none'}>
+                                    <AiOutlineMail size='18' />
+                                </InputLeftElement>
+                                <Input type='email' placeholder='johndoe@gmail.com' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setEmail(e.target.value)} />
+                            </InputGroup>
+                            <InputGroup spacing='4' >
+                                <InputLeftElement pointerEvents={'none'}>
+                                    <LuPhone size='16' />
+                                </InputLeftElement>
+                                <Input type='number' placeholder='961758XXXX' focusBorderColor='#5340ff' fontSize={'sm'} isRequired={true} onChange={(e) => setPhoneNumber(e.target.value)} />
+                            </InputGroup>
 
-                        <Textarea placeholder='Your message for us.' fontSize={'sm'} resize={'none'} focusBorderColor='#5340ff' isRequired={true} onChange={(e) => setMessage(e.target.value)} />
+                            <Textarea placeholder='Your message for us.' fontSize={'sm'} resize={'none'} focusBorderColor='#5340ff' isRequired={true} onChange={(e) => setMessage(e.target.value)} />
 
-                        {
-                            otpClicked ? 
-                                <Button isLoading onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
-                             : 
-                                <Button isDisabled={!name || !email || !phoneNumber || !message || phoneNumber.length > 10 || phoneNumber.length < 10 ? true : false} onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
-                        }
+                            {
+                                otpClicked ?
+                                    <Button isLoading onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
+                                    :
+                                    <Button isDisabled={!name || !email || !phoneNumber || !message || phoneNumber.length > 10 || phoneNumber.length < 10 ? true : false} onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
+                            }
 
-                        <Box
-                            bg="rgba(83, 64, 255,0.1)"
-                            p={4}
-                            border="1px"
-                            borderColor="gray.100"
-                            borderRadius="md"
-                            textAlign="left"
-                            width={'100%'}
+                            <TransitionDiv>
+                                <Box
+                                    bg="rgba(83, 64, 255,0.1)"
+                                    p={4}
+                                    border="1px"
+                                    borderColor="gray.100"
+                                    borderRadius="md"
+                                    textAlign="left"
+                                    width={'100%'}
 
-                        >
-                            <Text fontSize="md" mb={'2'} fontWeight={'semibold'} fontFamily={'Young Serif'}>Steps to Contact: ✨</Text>
-                            <UnorderedList fontSize={'sm'}>
-                                <ListItem>Fill all the details that are asked above.</ListItem>
-                                <ListItem>Click send and we'll send on OTP on your email.</ListItem>
-                                <ListItem>Check your email(spam also if not) and fill the OTP.</ListItem>
-                                <ListItem>Now, press send to post us your query.</ListItem>
-                                <ListItem>We'll get in touch with you asap.</ListItem>
-                            </UnorderedList>
-                        </Box>
-                    </VStack>
-                </MainWrapper>
-            </TransitionWrapper>
+                                >
+                                    <Text fontSize="md" mb={'2'} fontWeight={'semibold'} fontFamily={'Young Serif'}>Steps to Contact: ✨</Text>
+                                    <UnorderedList fontSize={'sm'}>
+                                        <ListItem>Fill all the details that are asked above.</ListItem>
+                                        <ListItem>Click send and we'll send on OTP on your email.</ListItem>
+                                        <ListItem>Check your email(spam also if not) and fill the OTP.</ListItem>
+                                        <ListItem>Now, press send to post us your query.</ListItem>
+                                        <ListItem>We'll get in touch with you asap.</ListItem>
+                                    </UnorderedList>
+                                </Box>
+                            </TransitionDiv>
+                        </VStack>
+                    </MainWrapper>
+                </TransitionWrapper>
+            </TransitionDiv>
 
 
             <Modal isOpen={isOpen} onClose={onClose} isCentered>
