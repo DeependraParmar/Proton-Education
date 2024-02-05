@@ -103,11 +103,11 @@ const HamburgerButton = ({ logo }) => {
             <VStack height={'95%'} width={'100%'} alignItems={'flex-start'} justifyContent={'space-between'}>
               <HStack width={'full'}>
                 <Menu>
-                  <MenuGroup >
-                    <MenuItem fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><AiOutlineHome size={'20'} /><Link className='width-full' to={'/'}> Home</Link></MenuItem>
-                    <MenuItem fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><MdOutlineInfo size={'20'} /> <Link className='width-full' to={'/about'}>About</Link></MenuItem>
-                    <MenuItem fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><HiMenuAlt1 size={'20'} /> <Link className='width-full' to={'/facility'}>Facility</Link></MenuItem>
-                    <MenuItem fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><FaChalkboardTeacher size={'20'} /> <Link className='width-full' to={'/faculty'}>Faculty</Link></MenuItem>
+                  <MenuGroup>
+                    <MenuItem  fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><AiOutlineHome size={'20'} /><Link style={{paddingRight: "13rem"}} className='width-full' to={'/'}> Home</Link></MenuItem>
+                    <MenuItem  fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><MdOutlineInfo size={'20'} /> <Link style={{paddingRight: "13rem"}} className='width-full' to={'/about'}>About</Link></MenuItem>
+                    <MenuItem  fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><HiMenuAlt1 size={'20'} /> <Link style={{paddingRight: "13rem"}} className='width-full' to={'/facility'}>Facility</Link></MenuItem>
+                    <MenuItem  fontSize={'sm'} className='width-full' fontWeight={'500'} onClick={onDrawerClose} _hover={{ borderRadius: '10px', bg: "rgba(83, 64, 255,0.2)", color: 'rgb(83,64,255)' }} gap={'2'}><FaChalkboardTeacher size={'20'} /> <Link style={{paddingRight: "13rem"}} className='width-full' to={'/faculty'}>Faculty</Link></MenuItem>
                   </MenuGroup>
                 </Menu>
               </HStack>
