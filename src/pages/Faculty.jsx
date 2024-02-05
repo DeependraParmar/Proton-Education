@@ -1,13 +1,17 @@
 import { Button, HStack, Heading, Image, Stack, Text, VStack } from '@chakra-ui/react'
-import React from 'react'
+import React, { useEffect } from 'react'
+import toast from 'react-hot-toast'
 import { AiFillMail } from 'react-icons/ai'
-import { FaPhone, FaPhoneAlt } from 'react-icons/fa'
+import { FaPhoneAlt } from 'react-icons/fa'
 import MainWrapper from '../components/MainWrapper'
 import TransitionWrapper from '../components/Transition'
-import toast from 'react-hot-toast'
 import { facultyDetails } from '../data'
 
 const Faculty = () => {
+    useEffect(() => {
+        window.scrollTo(0, 0, { behavior: 'smooth' });
+    }, []);
+    
     return (
         <>
             <TransitionWrapper>

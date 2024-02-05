@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import TransitionWrapper from '../components/Transition'
 import MainWrapper from '../components/MainWrapper'
 import { Box, Heading, ListItem, Stack, Text, UnorderedList, VStack } from '@chakra-ui/react'
@@ -6,6 +6,12 @@ import { FaEye } from 'react-icons/fa'
 import { TbTargetArrow } from 'react-icons/tb'
 
 const About = () => {
+    
+    useEffect(() => {
+        window.scrollTo(0, 0, { behavior: 'smooth' });
+    },[])
+
+
     return (
         <>
             <TransitionWrapper>

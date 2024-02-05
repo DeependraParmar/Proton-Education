@@ -1,10 +1,13 @@
 import { Heading } from '@chakra-ui/react'
-import React from 'react'
-import TransitionWrapper from '../components/Transition'
+import React, { useEffect } from 'react'
 import MainWrapper from '../components/MainWrapper'
-import BottomToTop from '../components/BottomToTop'
+import TransitionWrapper from '../components/Transition'
 
 const Home = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0, { behavior: 'smooth' });
+  }, [])
+  
   return (
     <>
       <TransitionWrapper>

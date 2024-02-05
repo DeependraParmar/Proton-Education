@@ -1,6 +1,6 @@
 import { Box, Button, Divider, Heading, Input, InputGroup, InputLeftElement, ListItem, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Text, Textarea, UnorderedList, VStack, useDisclosure } from '@chakra-ui/react'
 import axios from 'axios'
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import toast from 'react-hot-toast'
 import { AiOutlineMail, AiOutlineUser } from 'react-icons/ai'
 import { BiSolidSend } from 'react-icons/bi'
@@ -19,6 +19,10 @@ const Contact = () => {
     const [verEmail, setVerEmail] = useState("");
 
     const { isOpen, onOpen, onClose } = useDisclosure();
+
+    useEffect(() => {
+        window.scrollTo(0, 0, { behavior: 'smooth' });
+    }, [])
 
     const sendOTP = async (e) => {
         e.preventDefault();
