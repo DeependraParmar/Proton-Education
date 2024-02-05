@@ -12,7 +12,7 @@ const Home = () => {
     <>
       <TransitionWrapper>
         <MainWrapper pt={24} pb={12}>
-          <Heading height={'100vh'}>Home</Heading>
+          
         </MainWrapper>
       </TransitionWrapper>
     </>

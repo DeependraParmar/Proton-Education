@@ -43,11 +43,17 @@ const Faculty = () => {
 const FacultyCard = ({ image, name, education, experience, designation, school, phoneNumber, email }) => {
     const copyPhone = () => {
         navigator.clipboard.writeText(phoneNumber);
-        toast.success("Number Copied to Clipboard");
+        toast.success("Number Copied to Clipboard", {
+            position: "top-center",
+            duration: 5000,
+        });
     }
     const copyEmail = () => {
         navigator.clipboard.writeText(email);
-        toast.success("Email Copied to Clipboard");
+        toast.success("Email Copied to Clipboard", {
+            position: "top-center",
+            duration: 5000,
+        });
     }
 
     return (<>
