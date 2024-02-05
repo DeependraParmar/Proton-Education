@@ -28,7 +28,7 @@ const BottomToTop = () => {
     return (
         <>
             {
-                showButton && <Button size={'md'} boxShadow={'10px 10px 10px rgba(0,0,0,0.2)'} className='navButton' onClick={scrollToTop} position={'fixed'} bottom={[8,8,12,12]} right={[8,8,12,12]}><FaArrowUp /></Button>
+                showButton && <Button size={'md'} boxShadow={'10px 10px 10px rgba(0,0,0,0.2)'} className='navButton' onClick={scrollToTop} position={'fixed'} bottom={[4,4,12,12]} right={[4,4,12,12]}><FaArrowUp /></Button>
             }
         </>
     )
