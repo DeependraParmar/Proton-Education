@@ -14,7 +14,8 @@ const Contact = () => {
     const [email, setEmail] = useState("");
     const [phoneNumber, setPhoneNumber] = useState(0);
     const [message, setMessage] = useState("");
-    const [isClicked, setIsClicked] = useState(false);
+    const [otpClicked, setOtpClicked] = useState(false);
+    const [verifyClicked, setVerifyClicked] = useState(false);
 
     const [otp, setOtp] = useState();
     const [verEmail, setVerEmail] = useState("");
@@ -27,9 +28,8 @@ const Contact = () => {
 
     const sendOTP = async (e) => {
         e.preventDefault();
-        setIsClicked(true);
+        setOtpClicked(true);
         try {
-            console.log({name, email, phoneNumber, message});
             const res = await axios.post('https://proton-education-server.onrender.com/sendmail', {
                 name: name,
                 email: email,
@@ -37,14 +37,13 @@ const Contact = () => {
                 message: message,
             });
 
-            console.log(res.data);
 
             if (res.data.success) {
                 toast.success(res.data.message ,{
                     duration: 5000,
                     position: "top-center",
                 });
-                setIsClicked(false);
+                setOtpClicked(false);
                 onOpen();
                 setEmail('');
                 setName('');
@@ -52,39 +51,55 @@ const Contact = () => {
                 setMessage('');
             } else {
                 toast.error(res.data.message);
-                setIsClicked(false);
+                setOtpClicked(false);
             }
         } catch (error) {
             console.error('Error sending OTP:', error);
             toast.error('An error occurred. Please try again later.');
-            setIsClicked(false);
+            setOtpClicked(false);
         }
     };
 
 
-    const verifyOtp = async() => {
-        setIsClicked(true);
-        const res = await axios.post('https://proton-education-server.onrender.com/verifyotp', {
-            email: verEmail,
-            otp: Number(otp),
-        });
+    const verifyOtp = async () => {
+        setVerifyClicked(true);
 
-        if(res.data.success){
-            if(res.data.success){
-                toast.success('Query sent successfully. We\'ll get in touch with you asap.')
+        try {
+            const res = await axios.post('https://proton-education-server.onrender.com/verifyotp', {
+                email: verEmail,
+                otp: Number(otp),
+            });
+
+            if (res.status === 200) {
+                toast.success(res.data.message, {
+                    duration: 5000,
+                    position: 'top-center',
+                });
+                setVerifyClicked(false);
                 onClose();
-                setIsClicked(false);
-                setVerEmail('');
-                setOtp('');
-            }else{
-                toast.error('Failed to send OTP. Please try again later.');
-                setIsClicked(false);
+            } else {
+                switch (res.status) {
+                    case 404:
+                        toast.error(res.data.message);
+                        break;
+                    case 400:
+                        toast.warning(res.data.message);
+                        break;
+                    default:
+                        toast.error('An error occurred. Please try again later.');
+                }
+                setVerifyClicked(false);
             }
-        }else{
-            toast.error('Invalid OTP. Please try again.')
-            setIsClicked(false);
+        } catch (error) {
+            toast.error('Invalid Email or OTP. Please check your credentials.', {
+                duration: 5000,
+                position: 'top-center',
+            });
+            setVerifyClicked(false);
+            return;
         }
-    }
+    };
+
 
     return (
         <>
@@ -115,7 +130,7 @@ const Contact = () => {
                         <Textarea placeholder='Your message for us.' fontSize={'sm'} resize={'none'} focusBorderColor='#5340ff' isRequired={true} onChange={(e) => setMessage(e.target.value)} />
 
                         {
-                            isClicked ? 
+                            otpClicked ? 
                                 <Button isLoading onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
                              : 
                                 <Button isDisabled={!name || !email || !phoneNumber || !message || phoneNumber.length > 10 || phoneNumber.length < 10 ? true : false} onClick={e => sendOTP(e)} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'full'}>Send  <BiSolidSend /></Button>
@@ -174,7 +189,7 @@ const Contact = () => {
 
                     <ModalFooter gap={2}>
                         {
-                            isClicked ?
+                            verifyClicked ?
                                 <Button isLoading isDisabled={!verEmail || !otp || otp.length > 6 || otp.length < 6 ? true : false} onClick={verifyOtp} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'50%'}>Post Query   <BiSolidSend /></Button>
                             : 
                                 <Button isDisabled={!verEmail || !otp || otp.length > 6 || otp.length < 6 ? true : false} onClick={verifyOtp} gap={2} className='navButton' variant='solid' fontSize={'sm'} width={'50%'}>Post Query   <BiSolidSend /></Button>
