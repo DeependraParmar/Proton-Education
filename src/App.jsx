@@ -4,6 +4,7 @@ import LoadingComponent from "./components/Loading"
 import Header from "./pages/Layout/Header";
 import { Toaster } from "react-hot-toast";
 import Footer from "./pages/Layout/Footer";
+import BottomToTop from "./components/BottomToTop";
 
 const Home = lazy(() => import("./pages/Home"));
 const About = lazy(() => import ("./pages/About"))
@@ -24,6 +25,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer />
+      <BottomToTop />
       </Suspense>
 
 

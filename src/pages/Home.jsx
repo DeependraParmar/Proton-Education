@@ -1,12 +1,17 @@
 import { Heading } from '@chakra-ui/react'
 import React from 'react'
-
+import TransitionWrapper from '../components/Transition'
+import MainWrapper from '../components/MainWrapper'
+import BottomToTop from '../components/BottomToTop'
 
 const Home = () => {
   return (
     <>
-      <Heading height={'100vh'}>Home</Heading>
-
+      <TransitionWrapper>
+        <MainWrapper pt={24} pb={12}>
+          <Heading height={'100vh'}>Home</Heading>
+        </MainWrapper>
+      </TransitionWrapper>
     </>
   )
 }
