@@ -15,7 +15,7 @@ const Header = () => {
   const location = useLocation();
   return (
     <>
-      <Box boxShadow={'sm'} py={'4'} px={'6'} display={['flex']} alignItems={['center']} justifyContent={['space-between', 'space-between', 'space-around', 'space-around']} background={'white'} zIndex={1000} position={'fixed'} width={'full'} top={0} >
+      <Box boxShadow={'sm'} py={'4'} px={'6'} display={['flex']} alignItems={['center']} justifyContent={['space-between', 'space-between', 'space-around', 'space-around']} backgroundColor={'rgba(255,255,255,0.6)'} backdropFilter={'blur(8px)'} zIndex={1000} position={'fixed'} width={'full'} top={0} >
 
         <NavLogo logo={logo} />
         <NavLinks location={location} />
